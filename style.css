@@ -1,0 +1,60 @@
+.box{
+    width: 80vw;
+    height: 30vh;
+}
+
+.input{
+    margin-top: 50px;
+    height: 100px;
+}
+
+.button{
+    margin-top: 80px;
+}
+
+.textarea {
+    resize: none;
+}
+
+.mycontainer {
+    background-color:#393f4d;
+
+}
+
+
+
+.heading{
+    background-color:black;
+    color: white;
+    border-radius: 25px;
+}
+
+.st{
+   
+  
+    background-image: url("https://img.freepik.com/free-photo/yellow-list-top-view_23-2148475388.jpg?size=626&ext=jpg&ga=GA1.2.399375200.1675420198");
+    background-repeat: no-repeat;
+    background-position: center;
+   
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+ 
+    
+}
+
+
+.clock {
+    color: #00daff;
+    font-size: 60px;
+    font-family: Orbitron;
+    letter-spacing: 7px;
+    background-color: #070a0a;
+    border-radius: 40px;
+   
+}
+
+tbody>:nth-child(tableInd){
+    color:red; 
+    font-weight: bold;
+   }
