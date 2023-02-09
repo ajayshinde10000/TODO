@@ -16,6 +16,7 @@ function saveInd(i) {
 }
 
 function addTask() {
+  description.value.trim();
   if (task.value === "") {
     window.alert("Please Add Task");
     return;
@@ -64,6 +65,7 @@ function updateTask() {
   let updateTask = document.getElementById("updateTask");
   let updateDescription = document.getElementById("updateDescription");
   console.log(updateTask, updateDescription);
+
   if (updateTask.value === "") {
     window.alert("Please add Task");
     return;
