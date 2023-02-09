@@ -159,7 +159,7 @@ function checkCompletedTask() {
             <td><del>${arr[i].Description}</del></td>
             <td><del>${arr[i].Date}</del></td>
             <td>
-            <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="saveInd(${i})"><span class="material-symbols-outlined">
+            <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="saveInd(${i})"><span class="material-symbols-outlined">
             border_color
             </span></button>
             <button type="button" class="btn btn-success" onclick="markAsComplete(${i})"><span class="material-symbols-outlined">
@@ -179,7 +179,7 @@ function checkCompletedTask() {
             <td>${arr[i].Description}</td>
             <td>${arr[i].Date}</td>
             <td>
-        <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="saveInd(${i})"><span class="material-symbols-outlined">
+        <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="saveInd(${i})"><span class="material-symbols-outlined">
         border_color
         </span></button>
         <button type="button" class="btn btn-outline-success" onclick="markAsComplete(${i})"><span class="material-symbols-outlined">
@@ -241,32 +241,6 @@ function currentTime() {
 
 currentTime();
 
-// analog clock
-
-function key() {
-  if (event.keyCode == 13) {
-    addTask();
-  }
-}
-
-document.onkeydown = function (e) {
-  console.log(e);
-  if (e.ctrlKey == true && e.key == "s") {
-    e.preventDefault();
-    addTask();
-  } else if (e.ctrlKey == true && e.key == "d") {
-    e.preventDefault();
-    let arr = JSON.parse(localStorage.getItem("tasks"));
-
-    deleteTask(arr.length - 1);
-  } 
-  else if (e.key === "Enter") {
-    e.preventDefault();
-    document.getElementById("btnId").click();
-    alert("Window from e");
-  }
-};
-
 let focusIndex = 0;
 
 document.onkeydown = function (event) {
@@ -318,7 +292,7 @@ document.onkeydown = function (event) {
   }
 };
 
-//trying to implement areow function
+//trying to implement arrow function
 
 function showFocus() {
   if (focusIndex == 0) {
@@ -381,7 +355,7 @@ function showTableFocus()
     //    }
 
 
-       // Convwering to arrow key shortcut
+       // Convering to arrow key shortcut
 
        if (arr.length === 0) {
         show.innerHTML = `<div class="alert alert-success" role="alert">
@@ -413,7 +387,7 @@ function showTableFocus()
                 <td>${arr[i].Description}</td>
                 <td>${arr[i].Date}</td>
                 <td>
-                <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="saveInd(${i})"><span class="material-symbols-outlined">
+                <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="saveInd(${i})"><span class="material-symbols-outlined">
                 border_color
                 </span></button>
                 <button type="button" class="btn btn-success" onclick="markAsComplete(${i})"><span class="material-symbols-outlined">
@@ -433,7 +407,7 @@ function showTableFocus()
                 <td>${arr[i].Description}</td>
                 <td>${arr[i].Date}</td>
                 <td>
-            <button type="button" class="btn btn-outline-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="saveInd(${i})"><span class="material-symbols-outlined">
+            <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="saveInd(${i})"><span class="material-symbols-outlined">
             border_color
             </span></button>
             <button type="button" class="btn btn-outline-success" onclick="markAsComplete(${i})"><span class="material-symbols-outlined">
@@ -454,16 +428,10 @@ function showTableFocus()
     }
 }
 
-
 document.addEventListener("keypress", function (event) {
     if(window.event.key === 'Enter')
     {
-      console.log("Enter Works");
+      focusIndex++;
+      showFocus();
     }
   });
-
-
-  function something()
-  {
-    alert("Something Working");
-  }
