@@ -461,3 +461,9 @@ document.addEventListener("keypress", function (event) {
       console.log("Enter Works");
     }
   });
+
+
+  function something()
+  {
+    alert("Something Working");
+  }
