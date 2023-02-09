@@ -33,7 +33,6 @@ function addTask() {
       Date: time,
       status: false,
     };
-
     arr.push(obj);
 
     console.log(arr);
@@ -49,7 +48,6 @@ function addTask() {
 }
 
 function clearTask() {
-
   localStorage.clear();
   let arr = [];
   localStorage.setItem("tasks", JSON.stringify(arr));
@@ -61,7 +59,6 @@ function clearTask() {
 }
 
 function updateTask() {
-
   let arr = JSON.parse(localStorage.getItem("tasks"));
 
   let updateTask = document.getElementById("updateTask");
@@ -92,7 +89,6 @@ function updateTask() {
 }
 
 function deleteTask(myIndex) {
-
   let arr = JSON.parse(localStorage.getItem("tasks"));
 
   let newArr = [];
@@ -108,7 +104,6 @@ function deleteTask(myIndex) {
 }
 
 function markAsComplete(k) {
-
   let arr = JSON.parse(localStorage.getItem("tasks"));
 
   let obj = arr[k];
@@ -126,7 +121,6 @@ function markAsComplete(k) {
 
 checkCompletedTask();
 function checkCompletedTask() {
-
   let arr = JSON.parse(localStorage.getItem("tasks"));
 
   if (arr.length === 0) {
@@ -197,9 +191,9 @@ function checkCompletedTask() {
     </table>`;
     show.innerHTML = str;
 
-    let myTable = document.getElementById('start');
+    let myTable = document.getElementById("start");
     let totalRowCount = myTable.rows.length;
-    
+
     task.value = "";
     description.value = "";
   }
@@ -238,7 +232,6 @@ function currentTime() {
     currentTime();
   }, 1000);
 }
-
 currentTime();
 
 let focusIndex = 0;
@@ -246,7 +239,7 @@ let focusIndex = 0;
 document.onkeydown = function (event) {
   // ctr + rightArrow to navigate right
   // ctr + leftArrow to navigate left
-    let arr = JSON.parse(localStorage.getItem('tasks'));
+  let arr = JSON.parse(localStorage.getItem("tasks"));
 
   if (focusIndex > 3 || focusIndex < 0) {
     focusIndex = 3;
@@ -261,14 +254,11 @@ document.onkeydown = function (event) {
         break;
       }
       case 38: {
-        
         tableInd--;
-        if(tableInd < 1 )
-        {
-            tableInd=arr.length;
+        if (tableInd < 1) {
+          tableInd = arr.length;
         }
         showTableFocus();
-        
         //alert('Up key');
         break;
       }
@@ -280,9 +270,8 @@ document.onkeydown = function (event) {
       }
       case 40: {
         tableInd++;
-        if(tableInd > arr.length)
-        {
-            tableInd=1;
+        if (tableInd > arr.length) {
+          tableInd = 1;
         }
         showTableFocus();
         //alert("Down key")
@@ -330,40 +319,22 @@ document.addEventListener("keypress", function (event) {
   }
 });
 
-let tableInd=0;
-console.log(tableInd);
+let tableInd = 0;
 
-function showTableFocus()
-{
-    let arr = JSON.parse(localStorage.getItem("tasks"));
+function showTableFocus() {
+  let arr = JSON.parse(localStorage.getItem("tasks"));
 
-    console.log(tableInd);
-    var x = document.getElementById("start");
-    // x.style.color = "red";
-    //    for(let i=1;i<arr.length;i++)
-    //    {
-    //     if(i==tableInd-1)
-    //     {
-    //         console.log(i)
-    //         x.rows[tableInd].style.color = "red";
-    //     }
-    //     else
-    //     {
-    //         console.log(i)
-    //         x.rows[tableInd].style.color = "green";
-    //     }
-    //    }
+  var x = document.getElementById("start");
 
+  // Convering to arrow key shortcut
 
-       // Convering to arrow key shortcut
-
-       if (arr.length === 0) {
-        show.innerHTML = `<div class="alert alert-success" role="alert">
+  if (arr.length === 0) {
+    show.innerHTML = `<div class="alert alert-success" role="alert">
             Congratulations You Don't have any Pending Task To Do Please Add Task....
             </div>`;
-      } else {
-        let str = "";
-        str += `
+  } else {
+    let str = "";
+    str += `
         <table class="table table-light table-sm table-hover" id="start"  id="myTable">
         <caption>List of Tasks</caption>
     <thead>
@@ -377,10 +348,10 @@ function showTableFocus()
     </thead>
     <tbody>
     `;
-    
-        for (let i = 0; i < arr.length; i++) {
-          if (tableInd-1 === i) {
-            str += `
+
+    for (let i = 0; i < arr.length; i++) {
+      if (tableInd - 1 === i) {
+        str += `
             <tr class="table-danger">
                 <th scope="row">${i + 1}</th>
                 <td>${arr[i].Task}</td>
@@ -399,8 +370,8 @@ function showTableFocus()
                 </td>
             </tr>        
             `;
-          } else {
-            str += `
+      } else {
+        str += `
             <tr>
                 <th scope="row">${i + 1}</th>
                 <td>${arr[i].Task}</td>
@@ -419,19 +390,17 @@ function showTableFocus()
             </td>
             </tr>        
             `;
-          }
-        }
-        str += `</tbody>
-        </table>`;
-        show.innerHTML = str;
-       
+      }
     }
+    str += `</tbody>
+        </table>`;
+    show.innerHTML = str;
+  }
 }
 
 document.addEventListener("keypress", function (event) {
-    if(window.event.key === 'Enter')
-    {
-      focusIndex++;
-      showFocus();
-    }
-  });
+  if (window.event.key === "Enter") {
+    focusIndex++;
+    showFocus();
+  }
+});
