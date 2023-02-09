@@ -310,7 +310,7 @@ function showFocus() {
 }
 
 document.addEventListener("keypress", function (event) {
-  if (event.key === "Enter" && event.shiftKey == true) {
+  if (event.key === "S" && event.shiftKey == true) {
     // Prevent default shift + Enter
     event.preventDefault();
     // shift + Enter
