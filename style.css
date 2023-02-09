@@ -58,3 +58,9 @@ tbody>:nth-child(tableInd){
     color:red; 
     font-weight: bold;
    }
+
+   .table-hover > tbody > tr:hover > td,
+   .table-hover > tbody > tr:hover > th {
+       background-color: #9ac5cf;
+       forced-color-adjust: red;
+   }

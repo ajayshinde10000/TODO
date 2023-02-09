@@ -136,7 +136,7 @@ function checkCompletedTask() {
   } else {
     let str = "";
     str += `
-    <table class="table table-light table-sm" id="start">
+    <table class="table table-light table-sm table-hover" id="start" id="myTable">
     <caption>List of Tasks</caption>
 <thead>
 <tr>
@@ -390,7 +390,7 @@ function showTableFocus()
       } else {
         let str = "";
         str += `
-        <table class="table table-light table-sm" id="start">
+        <table class="table table-light table-sm table-hover" id="start"  id="myTable">
         <caption>List of Tasks</caption>
     <thead>
     <tr>
@@ -456,10 +456,8 @@ function showTableFocus()
 
 
 document.addEventListener("keypress", function (event) {
-    if(event.key === 'Enter')
+    if(window.event.key === 'Enter')
     {
-        window.event.key = 'Tab';
-        console.log( window.event.key = 'Tab');
+      console.log("Enter Works");
     }
   });
-
