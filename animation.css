@@ -54,7 +54,6 @@ p {
 }
 
 .box {
-	box-sizing: border-box;
 	font-size: 3vw;
 	margin: max(1rem, 3vw);
 	border: 0.35rem solid;

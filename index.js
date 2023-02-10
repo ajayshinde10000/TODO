@@ -201,6 +201,7 @@ function checkCompletedTask() {
   }
 }
 
+//adding clock Logic Here
 let date = new Date().toLocaleString();
 let myDate = document.getElementById("myDate");
 
@@ -260,6 +261,7 @@ document.onkeydown = function (event) {
         if (tableInd < 1) {
           tableInd = arr.length;
         }
+        console.log(tableInd);
         showTableFocus();
         //alert('Up key');
         break;
@@ -275,11 +277,37 @@ document.onkeydown = function (event) {
         if (tableInd > arr.length) {
           tableInd = 1;
         }
+        console.log(tableInd);
         showTableFocus();
         //alert("Down key")
         break;
       }
+      case 68:
+      {
+        window.event.preventDefault();
+        deleteTask(tableInd-1);
+        tableInd=0;
+        break;
+      }
+      case 77:
+      {
+        window.event.preventDefault();
+        markAsComplete(tableInd-1);
+        tableInd=0;
+        break;
+      }
+      case 83:
+      {
+          event.preventDefault();
+          addTask();
+          break;
+      }
     }
+  }
+
+  if(event.ctrlKey == true && event.shiftKey == true && event.keyCode == 68)
+  {
+    clearTask();
   }
 };
 
@@ -309,17 +337,6 @@ function showFocus() {
   }
 }
 
-document.addEventListener("keypress", function (event) {
-  if (event.key === "S" && event.shiftKey == true) {
-    // Prevent default shift + Enter
-    event.preventDefault();
-    // shift + Enter
-    document.getElementById("btnId").click();
-  } else if (event.key === "D" && event.shiftKey == true) {
-    event.preventDefault();
-    document.getElementById("btnId2").click();
-  }
-});
 
 let tableInd = 0;
 
@@ -339,7 +356,7 @@ function showTableFocus() {
     str += `
         <table class="table table-light table-sm table-hover" id="start"  id="myTable">
         <caption>List of Tasks</caption>
-    <thead>
+    <thead>true
     <tr>
       <th scope="col">SN</th>
       <th scope="col">Task</th>
@@ -400,9 +417,4 @@ function showTableFocus() {
   }
 }
 
-document.addEventListener("keypress", function (event) {
-  if (window.event.key === "Enter") {
-    focusIndex++;
-    showFocus();
-  }
-});
+

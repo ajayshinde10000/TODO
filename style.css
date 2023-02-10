@@ -1,6 +1,6 @@
 .box{
-    width: 80vw;
-    height: 30vh;
+    width: 96%;
+    height: 30%;
 }
 
 .input{
@@ -20,8 +20,6 @@
     background-color:#393f4d;
 
 }
-
-
 
 .heading{
     background-color:black;
