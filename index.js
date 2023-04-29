@@ -106,7 +106,8 @@ function deleteTask(myIndex) {
 }
 
 function markAsComplete(k) {
-  let arr = JSON.parse(localStorage.getItem("tasks"));
+  if(k!==undefined){
+    let arr = JSON.parse(localStorage.getItem("tasks"));
 
   let obj = arr[k];
 
@@ -117,7 +118,13 @@ function markAsComplete(k) {
   console.log(obj);
 
   localStorage.setItem("tasks", JSON.stringify(arr));
+  }
+  else
+  {
+   console.log("Something went wrong")
 
+  }
+  
   checkCompletedTask();
 }
 
@@ -346,75 +353,21 @@ function showTableFocus() {
   var x = document.getElementById("start");
 
   // Convering to arrow key shortcut
+  let tb = document.getElementsByTagName('table')[0];
 
-  if (arr.length === 0) {
-    show.innerHTML = `<div class="alert alert-success" role="alert">
-            Congratulations You Don't have any Pending Task To Do Please Add Task....
-            </div>`;
-  } else {
-    let str = "";
-    str += `
-        <table class="table table-light table-sm table-hover" id="start"  id="myTable">
-        <caption>List of Tasks</caption>
-    <thead>true
-    <tr>
-      <th scope="col">SN</th>
-      <th scope="col">Task</th>
-      <th scope="col">Description</th>
-      <th scope="col">Date</th>
-      <th scope="col">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    `;
-
-    for (let i = 0; i < arr.length; i++) {
-      if (tableInd - 1 === i) {
-        str += `
-            <tr class="table-danger">
-                <th scope="row">${i + 1}</th>
-                <td>${arr[i].Task}</td>
-                <td>${arr[i].Description}</td>
-                <td>${arr[i].Date}</td>
-                <td>
-                <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="saveInd(${i})"><span class="material-symbols-outlined">
-                border_color
-                </span></button>
-                <button type="button" class="btn btn-success" onclick="markAsComplete(${i})"><span class="material-symbols-outlined">
-                check_circle
-                </span></button>
-                <button type="button" class="btn btn-outline-danger" onclick="deleteTask(${i})"><span class="material-symbols-outlined">
-                delete
-                </span></button>
-                </td>
-            </tr>        
-            `;
-      } else {
-        str += `
-            <tr>
-                <th scope="row">${i + 1}</th>
-                <td>${arr[i].Task}</td>
-                <td>${arr[i].Description}</td>
-                <td>${arr[i].Date}</td>
-                <td>
-            <button type="button" class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo" onclick="saveInd(${i})"><span class="material-symbols-outlined">
-            border_color
-            </span></button>
-            <button type="button" class="btn btn-outline-success" onclick="markAsComplete(${i})"><span class="material-symbols-outlined">
-            check_circle
-            </span></button>
-            <button type="button" class="btn btn-outline-danger" onclick="deleteTask(${i})"><span class="material-symbols-outlined">
-            delete
-            </span></button>
-            </td>
-            </tr>        
-            `;
-      }
+  for(let i=0;i<tb.rows.length;i++)
+  {
+    if(i==tableInd)
+    {
+      tb.rows[i].style.color = '#cf9e19'; 
     }
-    str += `</tbody>
-        </table>`;
-    show.innerHTML = str;
+    else
+    {
+      tb.rows[i].style.color = "black";
+    }
   }
 }
+
+
 
 
